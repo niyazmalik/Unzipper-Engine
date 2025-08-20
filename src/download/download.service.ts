@@ -6,7 +6,8 @@ import { pipeline } from 'stream';
 import { promisify } from 'util';
 import { extractZipLinkFromHtml } from 'src/common/utils/html-zip-link.util';
 import { resolveProviderLink } from 'src/common/utils/provider-zip-link';
-import { createIdleTimeout } from 'src/common/utils/idle-timeout';
+import { createIdleTimeout } from 'src/common/utils/idle-Timeout';
+
 
 const streamPipeline = promisify(pipeline);
 
