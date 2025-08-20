@@ -15,7 +15,7 @@ export class DownloadService {
         while (attempt < maxRetries) {
             attempt++;
             try {
-                await this.tryDownload(url, destPath, maxRetries);
+                await this.tryDownload(url, destPath);
                 return;
             } catch (err) {
                 if (attempt === maxRetries) {
@@ -29,8 +29,8 @@ export class DownloadService {
         }
     }
 
-    private async tryDownload(url: string, destPath: string, maxRetries: number, redirectCount = 0): Promise<void> {
-        if (redirectCount > maxRetries) {
+    private async tryDownload(url: string, destPath: string, redirectCount = 0): Promise<void> {
+        if (redirectCount > 5) {
             throw new Error('Too many redirects');
         }
 
